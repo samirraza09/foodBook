@@ -25,15 +25,19 @@ public class AddShowFood extends AppCompatActivity implements View.OnClickListen
     Spinner locationView;
     DatePicker bestBeforeDayView;
     Button finishButton;
+    ArrayList dataList;
 
 
     @Override
     public void onClick(View view) {
         if (view.getId() == finishButton.getId()){
+            dataList.add(descriptionView.getText().toString());
 
-            Intent intent = new Intent(this, AddShowFood.class);
-            intent.putExtra("Key", "your Mom");
+            Food food = new Food(descriptionView.getText().toString(), Integer.parseInt(countView.getText().toString()));
+            Intent intent = new Intent(AddShowFood.this, MainActivity.class);
+            intent.putExtra("key", dataList);
             startActivity(intent);
+
         }
     }
 
@@ -62,6 +66,9 @@ public class AddShowFood extends AppCompatActivity implements View.OnClickListen
         Spinner sItems = (Spinner) findViewById(R.id.editFoodLocation);
         sItems.setAdapter(adapter);
 
-
+        Intent intent = getIntent();
+        if (intent.getExtras() != null) {
+            dataList = intent.getStringArrayListExtra("dataList");
+        }
     }
 }

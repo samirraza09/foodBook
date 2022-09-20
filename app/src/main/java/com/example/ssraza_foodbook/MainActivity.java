@@ -18,13 +18,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ArrayAdapter<String> foodAdapter;
     ArrayList<String> dataList;
     Button addFoodButton;
-
-
+    String sessionId;
 
     @Override
     public void onClick(View view) {
         if (view.getId() == addFoodButton.getId()){
             Intent intent = new Intent(this, AddShowFood.class);
+            intent.putExtra("dataList", dataList);
             startActivity(intent);
         }
     }
@@ -34,12 +34,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String sessionId = getIntent().getStringExtra("key");
         foodList = findViewById(R.id.foodListView);
         dataList = new ArrayList<>();
-        dataList.add(sessionId);
-        foodAdapter = new ArrayAdapter<>(this, R.layout.content, dataList);
-        // foodList.setAdapter(foodAdapter);
+
+        Intent intent = getIntent();
+        if (intent.getExtras() != null) {
+            dataList = intent.getStringArrayListExtra("key");
+            foodAdapter = new ArrayAdapter<>(this, R.layout.content, dataList);
+            foodList.setAdapter(foodAdapter);
+        }
 
         addFoodButton = findViewById(R.id.addFoodButton);
         addFoodButton.setOnClickListener(this);

@@ -2,63 +2,152 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout"
+    android:id="@+id/addFoodButton"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddShowFood" >
 
-    <EditText
-        android:id="@+id/foodDescriptionLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <TextView
-        android:id="@+id/editFoodDescription"
-        android:layout_width="143dp"
-        android:layout_height="40dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="243dp"
-        tools:layout_editor_absoluteY="18dp" />
 
     <EditText
-        android:id="@+id/foodCountLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="18dp"
-        tools:layout_editor_absoluteY="91dp" />
-
-    <TextView
-        android:id="@+id/editFoodCount"
-        android:layout_width="148dp"
-        android:layout_height="38dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="243dp"
-        tools:layout_editor_absoluteY="98dp" />
-
-    <EditText
-        android:id="@+id/foodUnitCostLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="19dp"
-        tools:layout_editor_absoluteY="158dp" />
-
-    <TextView
         android:id="@+id/editFoodUnitCost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="243dp"
-        tools:layout_editor_absoluteY="160dp" />
+        android:layout_width="211dp"
+        android:layout_height="70dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.609"
+        app:layout_constraintStart_toEndOf="@+id/foodDescriptionLabel"
+        app:layout_constraintTop_toBottomOf="@+id/editFoodCount" />
+
+    <Spinner
+        android:id="@+id/editFoodLocation"
+        android:layout_width="211dp"
+        android:layout_height="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.609"
+        app:layout_constraintStart_toEndOf="@+id/foodDescriptionLabel"
+        app:layout_constraintTop_toBottomOf="@+id/editFoodUnitCost" />
+
+    <TextView
+        android:id="@+id/foodBestBeforeLabel"
+        android:layout_width="143dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:gravity="left"
+        android:text="@string/foodBestBeforeLabelValue"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/editFoodDay"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foodLocationLabel" />
+
+    <TextView
+        android:id="@+id/foodDescriptionLabel"
+        android:layout_width="143dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:gravity="left"
+        android:text="@string/foodDescriptionLabelValue"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/foodCountLabel"
+        android:layout_width="143dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:gravity="left"
+        android:text="@string/foodCountLabelValue"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foodDescriptionLabel" />
+
+    <TextView
+        android:id="@+id/foodLocationLabel"
+        android:layout_width="143dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:gravity="left"
+        android:text="@string/foodLocationLabelValue"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foodUnitCostLabel" />
+
+    <TextView
+        android:id="@+id/foodUnitCostLabel"
+        android:layout_width="143dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:gravity="left"
+        android:text="@string/foodUnitCostLabelValue"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foodCountLabel" />
+
+    <EditText
+        android:id="@+id/editFoodDescription"
+        android:layout_width="211dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:maxLength="30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.609"
+        app:layout_constraintStart_toEndOf="@+id/foodDescriptionLabel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editFoodCount"
+        android:layout_width="211dp"
+        android:layout_height="70dp"
+        android:ems="10"
+        android:inputType="number"
+        android:maxLength="4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.609"
+        app:layout_constraintStart_toEndOf="@+id/foodDescriptionLabel"
+        app:layout_constraintTop_toBottomOf="@+id/editFoodDescription" />
+
+    <DatePicker
+        android:id="@+id/editFoodDay"
+        android:layout_width="238dp"
+        android:layout_height="140dp"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editFoodLocation" />
+
+    <Button
+        android:id="@+id/finishFoodButton"
+        android:layout_width="377dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/finishFoodButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editFoodDay" />
+
+    <Button
+        android:id="@+id/deleteFoodButton"
+        android:layout_width="377dp"
+        android:layout_height="67dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/deleteFoodButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/finishFoodButton" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

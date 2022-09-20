@@ -8,6 +8,7 @@
     tools:context=".MainActivity" >
 
     <ListView
+        android:id="@+id/foodListView"
         android:layout_width="match_parent"
         android:layout_height="634dp" />
 

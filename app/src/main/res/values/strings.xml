@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">ssraza-FoodBook</string>
+    <string name="app_name">Food Book</string>
+    <string name="foodDescriptionLabelValue">Description</string>
+    <string name="foodCountLabelValue">Count</string>
+    <string name="foodUnitCostLabelValue">Unit Cost</string>
+    <string name="foodLocationLabelValue">Location</string>
+    <string name="foodBestBeforeLabelValue">Best Before</string>
+    <string name="finishFoodButton">Finish</string>
+    <string name="deleteFoodButton">Delete</string>
 </resources>

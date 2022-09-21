@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -31,10 +32,11 @@ public class AddShowFood extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onClick(View view) {
         if (view.getId() == finishButton.getId()){
-            dataList.add(descriptionView.getText().toString());
 
             Food food = new Food(descriptionView.getText().toString(), Integer.parseInt(countView.getText().toString()));
             Intent intent = new Intent(AddShowFood.this, MainActivity.class);
+            dataList.add(food);
+            Log.d("Food", food.getDescription());
             intent.putExtra("key", dataList);
             startActivity(intent);
 
@@ -68,7 +70,7 @@ public class AddShowFood extends AppCompatActivity implements View.OnClickListen
 
         Intent intent = getIntent();
         if (intent.getExtras() != null) {
-            dataList = intent.getStringArrayListExtra("dataList");
+            dataList = intent.getParcelableArrayListExtra("dataList");
         }
     }
 }

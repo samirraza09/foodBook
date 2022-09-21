@@ -4,21 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     ListView foodList;
     ArrayAdapter<String> foodAdapter;
-    ArrayList<String> dataList;
+    ArrayList<Food> dataList;
     Button addFoodButton;
-    String sessionId;
 
     @Override
     public void onClick(View view) {
@@ -39,8 +38,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Intent intent = getIntent();
         if (intent.getExtras() != null) {
-            dataList = intent.getStringArrayListExtra("key");
-            foodAdapter = new ArrayAdapter<>(this, R.layout.content, dataList);
+            dataList = (ArrayList<Food>) intent.getSerializableExtra("key");
+            ArrayList<String> dataListString = new ArrayList<>();
+            for (int i = 0; i < dataList.size(); i++) {
+                dataListString.add(dataList.get(i).getDescription());
+            }
+
+            foodAdapter = new ArrayAdapter<>(this, R.layout.content, dataListString);
             foodList.setAdapter(foodAdapter);
         }
 

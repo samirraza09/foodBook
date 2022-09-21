@@ -1,9 +1,10 @@
 package com.example.ssraza_foodbook;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Food {
+public class Food implements Serializable {
 
     private String description;
     private Date bestBeforeDate;

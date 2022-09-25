@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -28,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // Passing current dataList to the class to AddShowFood
         if (view.getId() == addFoodButton.getId()){
-            Intent intent = new Intent(this, AddShowFood.class);
+            Intent intent = new Intent(this, AddShowFoodActivity.class);
             intent.putExtra("dataList", dataList);
             startActivity(intent);
         }
@@ -75,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Food selectedFood = (Food) parent.getItemAtPosition(position);
-                Intent intent = new Intent(MainActivity.this, AddShowFood.class);
+                Intent intent = new Intent(MainActivity.this, AddShowFoodActivity.class);
                 intent.putExtra("dataList", dataList);
                 intent.putExtra("selectedFood", selectedFood);
                 startActivity(intent);

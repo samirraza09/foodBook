@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
+// Custom array adapter class to show multiple textviews in each listview cell
 public class CustomArrayAdapter extends ArrayAdapter{
     private ArrayList<Food> foods;
     private Context context;

@@ -2,13 +2,8 @@ package com.example.ssraza_foodbook;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,19 +11,17 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AddShowFood extends AppCompatActivity implements View.OnClickListener{
+// Class is for handling the activity to view and edit foods, it also handles deleting foods
+public class AddShowFoodActivity extends AppCompatActivity implements View.OnClickListener{
     TextView descriptionView;
     TextView countView;
     TextView unitCostView;
+    TextView errorText;
     Spinner locationView;
     DatePicker bestBeforeDayView;
     Button finishButton;
@@ -37,7 +30,6 @@ public class AddShowFood extends AppCompatActivity implements View.OnClickListen
     Food selectedFood;
     int selectedFoodPosition;
     Map<String, Integer> bestBeforeDate;
-    TextView errorText;
 
 
     @Override
@@ -67,7 +59,7 @@ public class AddShowFood extends AppCompatActivity implements View.OnClickListen
                         Integer.parseInt(countView.getText().toString()),
                         Integer.parseInt(unitCostView.getText().toString())
                 );
-                Intent intent = new Intent(AddShowFood.this, MainActivity.class);
+                Intent intent = new Intent(AddShowFoodActivity.this, MainActivity.class);
 
                 // If the food being created is not an existing food we simply add it to the list,
                 // If it is existing, we add it in the appropriate position.
@@ -94,7 +86,7 @@ public class AddShowFood extends AppCompatActivity implements View.OnClickListen
 
                 // If the user is deleting an item that is not existing, we display a message
                 try {
-                    Intent intent = new Intent(AddShowFood.this, MainActivity.class);
+                    Intent intent = new Intent(AddShowFoodActivity.this, MainActivity.class);
                     for (Food food: dataList) {
                         String selectedFoodDescription = selectedFood.getDescription();
                         String foodDescription = food.getDescription();
@@ -175,7 +167,7 @@ public class AddShowFood extends AppCompatActivity implements View.OnClickListen
             locationView.setSelection(location);
 
             // If a food is selected then we need to know where the edited food will need to be
-            // re-added into the dataList, so we calculate selectedFoodPosition
+            // re-added into the dataList, so we cal`cu`late selectedFoodPosition
             for (Food food: dataList) {
                 String selectedFoodDescription = selectedFood.getDescription();
                 String foodDescription = food.getDescription();

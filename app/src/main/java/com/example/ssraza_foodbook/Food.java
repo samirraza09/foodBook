@@ -3,18 +3,19 @@ package com.example.ssraza_foodbook;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Map;
 
 public class Food implements Serializable {
 
     private String description;
-    private Date bestBeforeDate;
+    private Map<String, Integer> bestBeforeDate;
     private String location;
     private int count;
     private int unitCost;
 
     public Food(
             String description,
-            Date bestBeforeDate,
+            Map<String, Integer> bestBeforeDate,
             String location,
             int count,
             int unitCost
@@ -26,16 +27,6 @@ public class Food implements Serializable {
         this.unitCost = unitCost;
     }
 
-    public Food(
-            String description,
-            int count
-    ) {
-        this.description = description;
-        this.bestBeforeDate = Calendar.getInstance().getTime();
-        this.location = "";
-        this.count = count;
-        this.unitCost = -1;
-    }
 
     public String getDescription() {
         return description;
@@ -43,14 +34,6 @@ public class Food implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Date getBestBeforeDate() {
-        return bestBeforeDate;
-    }
-
-    public void setBestBeforeDate(Date bestBeforeDate) {
-        this.bestBeforeDate = bestBeforeDate;
     }
 
     public String getLocation() {
@@ -75,5 +58,13 @@ public class Food implements Serializable {
 
     public void setUnitCost(int unitCost) {
         this.unitCost = unitCost;
+    }
+
+    public Map<String, Integer> getBestBeforeDate() {
+        return bestBeforeDate;
+    }
+
+    public void setBestBeforeDate(Map<String, Integer> bestBeforeDate) {
+        this.bestBeforeDate = bestBeforeDate;
     }
 }

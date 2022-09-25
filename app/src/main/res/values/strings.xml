@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Food Book</string>
+    <string name="app_name">ssraza-FoodBook</string>
     <string name="foodDescriptionLabelValue">Description</string>
     <string name="foodCountLabelValue">Count</string>
     <string name="foodUnitCostLabelValue">Unit Cost</string>
